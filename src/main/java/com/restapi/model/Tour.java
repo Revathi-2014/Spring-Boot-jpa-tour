@@ -1,5 +1,6 @@
 package com.restapi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -7,6 +8,7 @@ import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,13 +37,14 @@ public class Tour {
 
     private String departureLocation;
 
-    private LocalDateTime departureDate;
+//    private LocalDate departureDate;
 
     private Integer days;
 
     @OneToMany(mappedBy = "tour")
     private List<Itinerary> itineraries = new ArrayList<>();
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "category_id",referencedColumnName = "id")
     private TourCategory category;

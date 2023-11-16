@@ -9,5 +9,5 @@ import javax.annotation.security.RolesAllowed;
 @RestController
 @RequestMapping("/api/admin/history ")
 @RolesAllowed(Role.ADMIN)
-public class AdminHistoryController {
+public class AdminBookingHistoryController {
 }

@@ -1,7 +1,7 @@
 package com.restapi.controller;
 
 import com.restapi.model.Role;
-import com.restapi.request.HistoryRequest;
+import com.restapi.request.BookingRequest;
 import com.restapi.response.common.APIResponse;
 import com.restapi.service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,16 +22,17 @@ public class BookingController {
     private BookingService bookingService;
 
     @GetMapping("/{userId}")
-    public ResponseEntity<APIResponse> getUsersHistory(@PathVariable Long userId) {
+    public ResponseEntity<APIResponse> getUsersBooking(@PathVariable Long userId) {
         apiResponse.setStatus(HttpStatus.OK.value());
-        apiResponse.setData(bookingService.findUserHistory(userId));
+        apiResponse.setData(bookingService.getUsersBooking(userId));
         return new ResponseEntity<>(apiResponse, HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity<APIResponse> bookTour(@RequestBody HistoryRequest historyRequest) {
+    public ResponseEntity<APIResponse> bookTour(@RequestBody BookingRequest bookingRequest) {
+
         apiResponse.setStatus(HttpStatus.OK.value());
-        apiResponse.setData(bookingService.bookTour(historyRequest));
+        apiResponse.setData(bookingService.bookTour(bookingRequest));
         return new ResponseEntity<>(apiResponse, HttpStatus.OK);
     }
 }

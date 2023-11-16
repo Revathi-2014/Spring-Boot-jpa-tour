@@ -9,6 +9,7 @@ import lombok.Setter;
 import javax.persistence.Column;
 import javax.persistence.Lob;
 import javax.validation.constraints.NotEmpty;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -43,7 +44,7 @@ public class TourRequest {
     private String departureLocation;
 
 //    @NotEmpty
-//    private LocalDateTime departureDate;
+//    private LocalDate departureDate;
 
     @NotEmpty
     private Integer days;

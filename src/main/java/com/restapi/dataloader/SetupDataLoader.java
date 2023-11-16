@@ -1,7 +1,9 @@
 package com.restapi.dataloader;
 
 import com.restapi.model.AppUser;
+import com.restapi.model.BookingStatus;
 import com.restapi.model.Role;
+import com.restapi.repository.BookingStatusRepository;
 import com.restapi.repository.RoleRepository;
 import com.restapi.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +27,9 @@ public class  SetupDataLoader implements ApplicationListener<ContextRefreshedEve
     private RoleRepository roleRepository;
 
     @Autowired
+    private BookingStatusRepository bookingStatusRepository;
+
+    @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Override
@@ -40,8 +45,13 @@ public class  SetupDataLoader implements ApplicationListener<ContextRefreshedEve
 //        Create user
         createUserIfNotFound("user", "user", userRole);
         createUserIfNotFound("admin", "admin", adminRole);
-
+        createStatus("Confirmed");
+        createStatus("Cancelled");
         alreadySetup = true;
+    }
+
+    private void createStatus(String status){
+        bookingStatusRepository.save(new BookingStatus(status));
     }
 
     @Transactional

@@ -28,4 +28,8 @@ public class BookingStatus {
     @CreationTimestamp
     @Column(updatable = false)
     private LocalDateTime createdAt;
+
+    public BookingStatus(String status){
+     this.status=status;
+    }
 }

@@ -40,12 +40,12 @@ public class TourService {
                 .orElseThrow(() -> new ResourceNotFoundException("CategoryId",
                         "CategoryId", tourRequest.getCategoryId()));
         tour.setCategory(category);
-        tourRepository.save(tour);
+        tour=tourRepository.save(tour);
         System.out.println(tour.getId());
-//        for (Itinerary itinerary: tourRequest.getItineraries()){
-//            itinerary.setTour(tour);
-//            itineraryRepository.save(itinerary);
-//        }
+        for (Itinerary itinerary: tourRequest.getItineraries()){
+            itinerary.setTour(tour);
+            itineraryRepository.save(itinerary);
+        }
         return findAll();
     }
 
@@ -56,7 +56,7 @@ public class TourService {
                 .orElseThrow(() -> new ResourceNotFoundException("CategoryId",
                         "CategoryId", tourRequest.getCategoryId()));
         tour.setCategory(category);
-        tour=tourRepository.save(tour);
+        tourRepository.save(tour);
         for (Itinerary itinerary: tourRequest.getItineraries()){
             itinerary.setTour(tour);
             itineraryRepository.save(itinerary);

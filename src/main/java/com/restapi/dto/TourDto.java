@@ -22,8 +22,9 @@ public class TourDto {
         tour.setTotalSeats(tourRequest.getTotalSeats());
         tour.setBalanceSeats(tourRequest.getBalanceSeats());
         tour.setDestination(tourRequest.getDestination());
-        tour.setDepartureDate(tourRequest.getDepartureDate());
+//        tour.setDepartureDate(tourRequest.getDepartureDate());
         tour.setDepartureLocation(tourRequest.getDepartureLocation());
+        tour.setItineraries(tourRequest.getItineraries());
         return tour;
     }
 }
