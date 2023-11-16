@@ -22,15 +22,14 @@ public class BookingController {
     private BookingService bookingService;
 
     @GetMapping("/{userId}")
-    public ResponseEntity<APIResponse> getUsersBooking(@PathVariable Long userId) {
+    public ResponseEntity<APIResponse> getUserBooking(@PathVariable Long userId) {
         apiResponse.setStatus(HttpStatus.OK.value());
         apiResponse.setData(bookingService.getUsersBooking(userId));
         return new ResponseEntity<>(apiResponse, HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity<APIResponse> bookTour(@RequestBody BookingRequest bookingRequest) {
-
+    public ResponseEntity<APIResponse> bookingTour(@RequestBody BookingRequest bookingRequest) {
         apiResponse.setStatus(HttpStatus.OK.value());
         apiResponse.setData(bookingService.bookTour(bookingRequest));
         return new ResponseEntity<>(apiResponse, HttpStatus.OK);

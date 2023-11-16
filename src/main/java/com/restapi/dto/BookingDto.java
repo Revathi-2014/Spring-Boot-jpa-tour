@@ -19,7 +19,7 @@ public class BookingDto {
             bookingResponse.setUsername(booking.getAppUser().getUsername());
             bookingResponse.setBookingStatus(booking.getBookingStatus().getStatus());
             bookingResponse.setPhoneNumber(booking.getAppUser().getPhoneNumber());
-
+            bookingResponse.setTour(booking.getTour().getTourName());
             bookingResponseList.add(bookingResponse);
         }
         return bookingResponseList;

@@ -11,7 +11,7 @@ import java.util.List;
 @ToString
 public class BookingResponse {
     private Long id;
-    private List<Tour> tourList;
+    private String tour;
     private Long userId;
     private String name;
     private String username;

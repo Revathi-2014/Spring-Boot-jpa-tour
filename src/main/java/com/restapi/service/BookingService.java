@@ -42,13 +42,11 @@ public class BookingService {
 
        Tour tour = tourRepository.findById(bookingRequest.getTour_id())
                 .orElseThrow(() ->
-                        new ResourceNotFoundException("addressId", "addressId", bookingRequest.getTour_id()));
+                        new ResourceNotFoundException("tourId", "tourId", bookingRequest.getTour_id()));
 
         BookingStatus bookingStatus = bookingStatusRepository.findById(1L)
                 .orElseThrow(() ->
-                        new ResourceNotFoundException("orderStatusId", "orderStatusId", 1));
-
-
+                        new ResourceNotFoundException("bookingStatusId", "bookingStatusId", 1));
 
         Booking booking=new Booking();
         booking.setAppUser(appUser);
@@ -65,5 +63,29 @@ public class BookingService {
         List<Booking> bookingList = bookingRepository.findUserBooking(userId)
                 .orElseThrow(() -> new ResourceNotFoundException("userId", "userId", userId));
         return bookingDto.mapToBookingResponse(bookingList);
+    }
+
+
+    public List<BookingResponse> getAllBookings(){
+        List<Booking> bookingList = bookingRepository.findAll();
+        return bookingDto.mapToBookingResponse(bookingList);
+    }
+
+    public List<BookingStatus> getAllBookingStatus(){
+        return bookingStatusRepository.findAll();
+    }
+
+    public List<BookingResponse> updateBookingStatus(Long bookingId, Long statusId){
+        Booking booking = bookingRepository.findById(bookingId)
+                .orElseThrow(() -> new ResourceNotFoundException("bookingId", "bookingId", bookingId));
+
+        BookingStatus bookingStatus = bookingStatusRepository.findById(statusId)
+                .orElseThrow(() -> new ResourceNotFoundException("statusId", "statusId", statusId));
+
+        booking.setBookingStatus(bookingStatus);
+
+        bookingRepository.save(booking);
+
+        return getAllBookings();
     }
 }

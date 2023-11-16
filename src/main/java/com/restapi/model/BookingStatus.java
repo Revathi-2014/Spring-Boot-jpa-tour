@@ -1,5 +1,6 @@
 package com.restapi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,6 +23,7 @@ public class BookingStatus {
     @Column(nullable = false, length = 200)
     private String status;
 
+    @JsonIgnore
     @OneToOne(mappedBy = "bookingStatus")
     private Booking booking;
 

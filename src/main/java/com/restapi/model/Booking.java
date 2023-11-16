@@ -1,5 +1,6 @@
 package com.restapi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,10 +27,12 @@ public class Booking {
 
     private Integer count;
 
+    @JsonIgnore
     @OneToOne
     @JoinColumn(name = "tour_id", referencedColumnName = "id")
     private Tour tour;
 
+    @JsonIgnore
     @OneToOne
     @JoinColumn(name = "status_id", referencedColumnName = "id")
     private BookingStatus bookingStatus;

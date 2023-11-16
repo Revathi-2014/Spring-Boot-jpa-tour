@@ -9,6 +9,7 @@ import lombok.Setter;
 import javax.persistence.Column;
 import javax.persistence.Lob;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -26,6 +27,7 @@ public class TourRequest {
     private Long categoryId;
 
     @NotEmpty
+    @Size(min = 2, message = "Tour Name should have at least 2 characters")
     private String tourName;
 
     @NotEmpty
