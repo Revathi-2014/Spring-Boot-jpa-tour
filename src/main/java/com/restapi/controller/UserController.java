@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.security.RolesAllowed;
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/user")
@@ -36,7 +37,7 @@ public class UserController {
     }
 
     @PostMapping("/userDetails")
-    public ResponseEntity<APIResponse> createUserDetail(@RequestBody
+    public ResponseEntity<APIResponse> createUserDetail(@Valid  @RequestBody
                                                         UserBookingRequest userBookingRequest) {
         UserBookingResponse userBookingResponse = userBookingService.create(userBookingRequest);
         apiResponse.setStatus(HttpStatus.OK.value());
@@ -45,7 +46,7 @@ public class UserController {
     }
 
     @PutMapping("/userDetails")
-    public ResponseEntity<APIResponse> updateUserDetail(@RequestBody
+    public ResponseEntity<APIResponse> updateUserDetail(@Valid @RequestBody
                                                         UserBookingRequest userBookingRequest) {
         UserBookingResponse userBookingResponse = userBookingService.update(userBookingRequest);
         apiResponse.setStatus(HttpStatus.OK.value());

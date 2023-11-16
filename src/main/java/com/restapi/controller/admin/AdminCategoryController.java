@@ -12,6 +12,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.security.RolesAllowed;
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/admin/category")
@@ -32,7 +33,7 @@ public class AdminCategoryController {
     }
 
     @PostMapping
-    public ResponseEntity<APIResponse> createCategory(@RequestBody
+    public ResponseEntity<APIResponse> createCategory(@Valid @RequestBody
                                                       CategoryRequest categoryRequest) {
         CategoryResponse categoryResponse = categoryService.create(categoryRequest);
         apiResponse.setStatus(HttpStatus.OK.value());

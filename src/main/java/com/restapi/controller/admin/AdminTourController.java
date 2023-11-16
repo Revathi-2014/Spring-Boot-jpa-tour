@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.security.RolesAllowed;
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -32,7 +33,7 @@ public class AdminTourController {
     }
 
     @PostMapping
-    public ResponseEntity<APIResponse> createTour(@RequestBody
+    public ResponseEntity<APIResponse> createTour(@Valid @RequestBody
                                                   TourRequest tourRequest) {
         List<Tour> tourList = tourService.createTour(tourRequest);
         apiResponse.setStatus(HttpStatus.OK.value());
@@ -41,7 +42,7 @@ public class AdminTourController {
     }
 
     @PutMapping
-    public ResponseEntity<APIResponse> updateTour(@RequestBody
+    public ResponseEntity<APIResponse> updateTour(@Valid @RequestBody
                                                       TourRequest tourRequest) {
         List<Tour> tourList = tourService.updateTour(tourRequest);
         apiResponse.setStatus(HttpStatus.OK.value());

@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.security.RolesAllowed;
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -51,7 +52,7 @@ public class AdminBookingHistoryController {
 
 
     @PutMapping("/status")
-    public ResponseEntity<APIResponse> updateBookingStatus(
+    public ResponseEntity<APIResponse> updateBookingStatus(@Valid
             @RequestBody BookingStatusRequest bookingStatusRequest) {
         List<BookingResponse> bookingResponseList = bookingService
                 .updateBookingStatus(bookingStatusRequest.getBookingId(),
