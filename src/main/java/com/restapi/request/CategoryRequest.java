@@ -6,6 +6,7 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +22,7 @@ public class CategoryRequest {
     private Long id;
 
     @NotEmpty
+    @Size(min = 2, message = "Category should have at least 2 characters")
     private String categoryName;
 
     @NotEmpty

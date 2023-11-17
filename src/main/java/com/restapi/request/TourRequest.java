@@ -33,22 +33,21 @@ public class TourRequest {
     @NotEmpty
     private byte[] tourPhoto;
 
-    @NotEmpty
+
     private String destination;
 
-    @NotEmpty
+
     private Integer totalSeats;
 
-    @NotEmpty
+
     private Integer balanceSeats;
 
-    @NotEmpty
+
     private String departureLocation;
 
 //    @NotEmpty
 //    private LocalDate departureDate;
-
-    @NotEmpty
+    
     private Integer days;
 
     @NotEmpty

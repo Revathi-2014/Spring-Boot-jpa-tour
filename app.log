@@ -7553,3 +7553,37 @@ org.springframework.security.access.AccessDeniedException: Access is denied
 2023-11-16 17:06:13.159 DEBUG 7440 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Secured POST /api/admin/tour
 2023-11-16 17:06:13.162 TRACE 7440 --- [http-nio-8080-exec-6] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
 2023-11-16 17:06:13.162 DEBUG 7440 --- [http-nio-8080-exec-6] s.s.w.c.SecurityContextPersistenceFilter : Cleared SecurityContextHolder to complete request
+2023-11-16 17:10:42.942  INFO 7440 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-11-16 17:10:42.959  INFO 7440 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-11-16 17:10:42.973  INFO 7440 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-11-16 17:10:49.268  INFO 13052 --- [main] c.r.SpringBootRestApiStarterApplication  : Starting SpringBootRestApiStarterApplication using Java 17.0.8 on DESKTOP-4FDRQ46 with PID 13052 (C:\Users\kumaran\Desktop\springboot\Spring-Boot-jpa-tour\target\classes started by kumaran in C:\Users\kumaran\Desktop\springboot\Spring-Boot-jpa-tour)
+2023-11-16 17:10:49.272  INFO 13052 --- [main] c.r.SpringBootRestApiStarterApplication  : No active profile set, falling back to 1 default profile: "default"
+2023-11-16 17:10:51.182  INFO 13052 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-16 17:10:51.339  INFO 13052 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 139 ms. Found 8 JPA repository interfaces.
+2023-11-16 17:10:52.628  INFO 13052 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-11-16 17:10:52.651  INFO 13052 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-11-16 17:10:52.652  INFO 13052 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.82]
+2023-11-16 17:10:52.876  INFO 13052 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-11-16 17:10:52.877  INFO 13052 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3524 ms
+2023-11-16 17:10:53.134  INFO 13052 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-11-16 17:10:53.219  INFO 13052 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-11-16 17:10:53.469  INFO 13052 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-11-16 17:10:53.627  INFO 13052 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-11-16 17:10:53.635  WARN 13052 --- [main] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2023-11-16 17:10:53.959  INFO 13052 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-11-16 17:10:53.992  INFO 13052 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-11-16 17:10:55.359  INFO 13052 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-11-16 17:10:55.380  INFO 13052 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-11-16 17:10:55.430  WARN 13052 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-11-16 17:10:57.195 TRACE 13052 --- [main] eGlobalAuthenticationAutowiredConfigurer : Eagerly initializing {securityConfig=com.restapi.config.SecurityConfig$$EnhancerBySpringCGLIB$$f71e9395@34f8ce89}
+2023-11-16 17:10:57.332 DEBUG 13052 --- [main] edFilterInvocationSecurityMetadataSource : Adding web access control expression [permitAll] for Ant [pattern='/api/auth/**']
+2023-11-16 17:10:57.355 DEBUG 13052 --- [main] edFilterInvocationSecurityMetadataSource : Adding web access control expression [permitAll] for Ant [pattern='/swagger-ui/**']
+2023-11-16 17:10:57.356 DEBUG 13052 --- [main] edFilterInvocationSecurityMetadataSource : Adding web access control expression [authenticated] for any request
+2023-11-16 17:10:57.363 TRACE 13052 --- [main] o.s.s.w.a.i.FilterSecurityInterceptor    : Validated configuration attributes
+2023-11-16 17:10:57.365 TRACE 13052 --- [main] o.s.s.w.a.i.FilterSecurityInterceptor    : Validated configuration attributes
+2023-11-16 17:10:57.370  INFO 13052 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@20bf7206, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4cb939d5, org.springframework.security.web.context.SecurityContextPersistenceFilter@1267adbe, org.springframework.security.web.header.HeaderWriterFilter@7c6557da, org.springframework.security.web.authentication.logout.LogoutFilter@20e25bf7, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@65013d71, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@63024843, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@53ce27fa, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@30b0f674, org.springframework.security.web.session.SessionManagementFilter@4807b2b7, org.springframework.security.web.access.ExceptionTranslationFilter@1e387974, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1e834a5b]
+2023-11-16 17:10:57.740  INFO 13052 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-11-16 17:10:58.433  INFO 13052 --- [main] c.r.SpringBootRestApiStarterApplication  : Started SpringBootRestApiStarterApplication in 9.847 seconds (JVM running for 10.556)
+2023-11-16 17:13:04.900  INFO 13052 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-11-16 17:13:04.903  INFO 13052 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-11-16 17:13:04.914  INFO 13052 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
