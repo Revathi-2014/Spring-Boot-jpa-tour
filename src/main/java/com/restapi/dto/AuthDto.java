@@ -24,6 +24,7 @@ public class AuthDto {
         authResponse.setName(appUser.getName());
         authResponse.setUsername(appUser.getUsername());
         authResponse.setPhoneNumber(appUser.getPhoneNumber());
+        authResponse.setRole(appUser.getRoles().getName());
         return authResponse;
     }
 }

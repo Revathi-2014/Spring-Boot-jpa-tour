@@ -32,4 +32,5 @@ public class TourCategoryController {
         apiResponse.setData(categoryResponse);
         return new ResponseEntity<>(apiResponse, HttpStatus.OK);
     }
+
 }

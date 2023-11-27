@@ -20,10 +20,9 @@ public class RegisterRequest {
     private String password;
 
     @NotEmpty
-    @Size(min = 2, message = "Name should have at least 2 characters")
+    @Size(min = 2, message = "Name shojhgfd/uld have at least 2 characters")
     private String name;
 
-    @NotEmpty
     private Long phoneNumber;
 
 

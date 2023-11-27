@@ -43,7 +43,7 @@ public class AdminTourController {
 
     @PutMapping
     public ResponseEntity<APIResponse> updateTour(@Valid @RequestBody
-                                                      TourRequest tourRequest) {
+                                                  TourRequest tourRequest) {
         List<Tour> tourList = tourService.updateTour(tourRequest);
         apiResponse.setStatus(HttpStatus.OK.value());
         apiResponse.setData(tourList);
@@ -57,5 +57,4 @@ public class AdminTourController {
         apiResponse.setData(tourList);
         return new ResponseEntity<>(apiResponse, HttpStatus.OK);
     }
-
 }

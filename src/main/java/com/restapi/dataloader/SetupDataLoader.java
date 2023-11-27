@@ -13,6 +13,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import javax.transaction.Transactional;
+import java.util.List;
 import java.util.Optional;
 
 @Component
@@ -51,7 +52,10 @@ public class  SetupDataLoader implements ApplicationListener<ContextRefreshedEve
     }
 
     private void createStatus(String status){
+        List<BookingStatus> bookingStatusList=bookingStatusRepository.findByStatus(status);
+        if(bookingStatusList.isEmpty()){
         bookingStatusRepository.save(new BookingStatus(status));
+        }
     }
 
     @Transactional

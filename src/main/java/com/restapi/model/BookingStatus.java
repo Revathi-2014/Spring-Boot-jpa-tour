@@ -9,6 +9,7 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Getter
@@ -24,8 +25,8 @@ public class BookingStatus {
     private String status;
 
     @JsonIgnore
-    @OneToOne(mappedBy = "bookingStatus")
-    private Booking booking;
+    @OneToMany(mappedBy = "bookingStatus")
+    private List<Booking> booking;
 
     @CreationTimestamp
     @Column(updatable = false)

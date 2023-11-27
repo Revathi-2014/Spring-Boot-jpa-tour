@@ -25,6 +25,8 @@ public class Tour {
 
     private String tourName;
 
+    private String tourDescription;
+
     @Lob
     @Column( columnDefinition="BLOB")
     private byte[] tourPhoto;
@@ -35,13 +37,14 @@ public class Tour {
 
     private Integer balanceSeats;
 
-    private String departureLocation;
 
-//    private LocalDate departureDate;
+    private Long price;
+
+    private LocalDate departureDate;
 
     private Integer days;
 
-    @OneToMany(mappedBy = "tour")
+    @OneToMany(mappedBy = "tour", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Itinerary> itineraries = new ArrayList<>();
 
     @JsonIgnore
@@ -49,8 +52,9 @@ public class Tour {
     @JoinColumn(name = "category_id",referencedColumnName = "id")
     private TourCategory category;
 
-    @OneToOne(mappedBy = "tour")
-    private Booking booking;
+    @JsonIgnore
+    @OneToMany(mappedBy = "tour")
+    private List<Booking> bookingList=new ArrayList<>();
 
     @CreationTimestamp
     @Column(updatable = false)

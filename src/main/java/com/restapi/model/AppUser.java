@@ -52,10 +52,6 @@ public class AppUser {
     private List<Booking> booking;
 
 
-
-    @OneToOne(mappedBy = "appUser")
-    private UserDetails userDetails;
-
     @CreationTimestamp
     private LocalDateTime createdAt;
 

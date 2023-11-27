@@ -27,13 +27,13 @@ public class Booking {
 
     private Integer count;
 
-    @JsonIgnore
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "tour_id", referencedColumnName = "id")
     private Tour tour;
-
-    @JsonIgnore
-    @OneToOne
+    private String name;
+    private String userName;
+    private Long phoneNumber;
+    @ManyToOne
     @JoinColumn(name = "status_id", referencedColumnName = "id")
     private BookingStatus bookingStatus;
 

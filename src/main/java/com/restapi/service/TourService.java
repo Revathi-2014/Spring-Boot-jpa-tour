@@ -2,6 +2,7 @@ package com.restapi.service;
 
 import com.restapi.dto.TourDto;
 import com.restapi.exception.common.ResourceNotFoundException;
+import com.restapi.model.Booking;
 import com.restapi.model.Itinerary;
 import com.restapi.model.Tour;
 import com.restapi.model.TourCategory;
@@ -9,6 +10,8 @@ import com.restapi.repository.CategoryRepository;
 import com.restapi.repository.ItineraryRepository;
 import com.restapi.repository.TourRepository;
 import com.restapi.request.TourRequest;
+import com.restapi.response.BookingResponse;
+import com.restapi.response.TourResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -67,5 +70,26 @@ public class TourService {
     public List<Tour> deleteById(Integer id){
         tourRepository.deleteById(Long.valueOf(id));
         return findAll();
+    }
+
+
+    public List<TourResponse> getTourByCategoryId(Long categoryId){
+
+            List<Tour> tourList = tourRepository.findByCategoryId(categoryId)
+                    .orElseThrow(() -> new ResourceNotFoundException("categoryId", "categoryId", categoryId));
+            return tourDto.mapToTourResponse(tourList);
+
+    }
+
+    public TourResponse getTourByTourId(Long id){
+        Tour tour = tourRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("tourId", "tourId", id));
+        return tourDto.mapToTourId(tour);
+    }
+
+
+    public List<TourResponse> findAllTour(){
+        List<Tour> tourList = tourRepository.findAll();
+        return tourDto.mapToTourResponse(tourList);
     }
 }
