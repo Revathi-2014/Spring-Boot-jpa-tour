@@ -3,8 +3,6 @@ package com.restapi.service;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import com.restapi.dto.TourDto;
 import com.restapi.exception.common.ResourceNotFoundException;
 import com.restapi.model.Itinerary;
@@ -15,11 +13,8 @@ import com.restapi.repository.ItineraryRepository;
 import com.restapi.repository.TourRepository;
 import com.restapi.request.TourRequest;
 import com.restapi.response.TourResponse;
-import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
-import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import org.junit.Assert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
@@ -27,7 +22,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -60,25 +54,31 @@ public class TourService {
                         "CategoryId", tourRequest.getCategoryId()));
         tour.setCategory(category);
         tour = tourRepository.save(tour);
-        String jsonString=tourRequest.getItineraries();
+        String jsonString = tourRequest.getItineraries();
         Object jsonObject = JSONValue.parse(jsonString);
         System.out.println(jsonObject);
         ObjectMapper objectMapper = new ObjectMapper();
         JsonNode jsonNode = objectMapper.readTree(jsonString);
-        List<Itinerary> itineraryList=new ArrayList<>();
+        List<Itinerary> itineraryList = new ArrayList<>();
 
-        if (jsonNode.has("itineraries") && jsonNode.get("itineraries").isArray()) {
-            JsonNode itinerariesNode = jsonNode.get("itineraries");
-            for (JsonNode itineraryNode : itinerariesNode) {
-                Itinerary itinerary = objectMapper.treeToValue(itineraryNode, Itinerary.class);
+        if (jsonNode.isArray()) {
+//            JsonNode itinerariesNode = jsonNode.get("itineraries");
+            for (JsonNode itineraryNode : jsonNode) {
+                Itinerary itinerary = new Itinerary();
                 itinerary.setTour(tour);
+                itinerary.setAfternoon(itineraryNode.get("afternoon").toString());
+                itinerary.setDay(itineraryNode.get("day").toString());
+                itinerary.setBreakfast(itineraryNode.get("breakfast").asBoolean());
+                itinerary.setHotel(itineraryNode.get("hotel").toString());
+                itinerary.setLunch(itineraryNode.get("lunch").asBoolean());
+                itinerary.setDinner(itineraryNode.get("dinner").asBoolean());
+                itinerary.setMorning(itineraryNode.get("morning").toString());
+                itinerary.setNight(itineraryNode.get("night").toString());
                 itineraryList.add(itinerary);
+
             }
         }
-        for (Itinerary itinerary : itineraryList) {
-            itineraryRepository.save(itinerary);
-        }
-//
+        itineraryRepository.saveAll(itineraryList);
         return findAll();
     }
 

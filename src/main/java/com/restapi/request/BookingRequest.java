@@ -17,6 +17,6 @@ public class BookingRequest {
     private Long tour_id;
     @NotEmpty
     private Integer count;
-    private Long price;
+
 
 }
