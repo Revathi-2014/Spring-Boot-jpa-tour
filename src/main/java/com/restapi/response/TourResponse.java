@@ -14,8 +14,8 @@ import java.util.List;
 public class TourResponse {
     private Long id;
     private String tourName;
-    private byte[] tourPhoto;
-    private String category;
+    private String tourPhoto;
+    private String destination;
     private Long categoryId;
     private Long price;
     private String tourDescription;

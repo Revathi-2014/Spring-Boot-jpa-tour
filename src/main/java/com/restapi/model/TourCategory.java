@@ -23,14 +23,15 @@ public class TourCategory {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column
     private String categoryName;
 
     @OneToMany(mappedBy = "category")
     private List<Tour> tourList=new ArrayList<>();
 
-    @Lob
-    @Column( columnDefinition="BLOB")
-    private byte[] categoryPhoto;
+
+    @Column
+    private String categoryPhoto;
 
     @CreationTimestamp
     @Column(updatable = false)

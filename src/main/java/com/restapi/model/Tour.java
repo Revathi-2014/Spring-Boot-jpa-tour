@@ -23,25 +23,31 @@ public class Tour {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column
     private String tourName;
 
+    @Column
     private String tourDescription;
 
-    @Lob
-    @Column( columnDefinition="BLOB")
-    private byte[] tourPhoto;
+    @Column
+    private String  tourPhoto;
 
+    @Column
     private String destination;
 
+    @Column
     private Integer totalSeats;
 
+    @Column
     private Integer balanceSeats;
 
-
+    @Column
     private Long price;
 
+    @Column
     private LocalDate departureDate;
 
+    @Column
     private Integer days;
 
     @OneToMany(mappedBy = "tour", cascade = CascadeType.ALL, orphanRemoval = true)

@@ -54,6 +54,7 @@ public class BookingService {
         booking.setBookingStatus(bookingStatus);
         booking.setCount(bookingRequest.getCount());
 
+
         bookingRepository.save(booking);
 
         return getUsersBooking(bookingRequest.getUser_id());

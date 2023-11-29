@@ -6,6 +6,7 @@ import com.restapi.request.TourRequest;
 import com.restapi.response.TourResponse;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,10 +23,10 @@ public class TourDto {
         tour.setDays(tourRequest.getDays());
         tour.setTourDescription(tourRequest.getTourDescription());
         tour.setTotalSeats(tourRequest.getTotalSeats());
-        tour.setDestination(tourRequest.getCategory());
+        tour.setDestination(tourRequest.getDestination());
         tour.setPrice(tourRequest.getPrice());
-        tour.setDepartureDate(tourRequest.getDepartureDate());
-        tour.setItineraries(tourRequest.getItineraries());
+        tour.setDepartureDate(LocalDate.parse(tourRequest.getDepartureDate()));
+//        tour.setItineraries(tourRequest.getItineraries());
         return tour;
     }
 
@@ -37,7 +38,7 @@ public class TourDto {
             tourResponse.setId(tour.getId());
             tourResponse.setTourName(tour.getTourName());
             tourResponse.setTourPhoto(tour.getTourPhoto());
-            tourResponse.setCategory(tour.getDestination());
+            tourResponse.setDestination(tour.getDestination());
             tourResponse.setPrice(tour.getPrice());
             tourResponse.setCategoryId(tour.getCategory().getId());
             tourResponse.setDays(tour.getDays());
@@ -57,7 +58,7 @@ public class TourDto {
             tourResponse.setId(tour.getId());
         }
         tourResponse.setTourName(tour.getTourName());
-        tourResponse.setCategory(tour.getDestination());
+        tourResponse.setDestination(tour.getDestination());
         tourResponse.setPrice(tour.getPrice());
         tourResponse.setTourPhoto(tour.getTourPhoto());
         tourResponse.setTourDescription(tour.getTourDescription());
