@@ -28,8 +28,8 @@ public class Tour {
 
 
 //    @Column(length = 500)
-@Column(columnDefinition = "TEXT")
-@Lob
+    @Column(columnDefinition = "TEXT")
+    @Lob
     private String tourDescription;
 
     @Column

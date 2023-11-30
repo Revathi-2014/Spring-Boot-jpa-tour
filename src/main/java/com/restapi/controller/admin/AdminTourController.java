@@ -72,25 +72,25 @@ public class AdminTourController {
         tourRequest.setId(id);
         System.out.println(id);
         tourRequest.setTourDescription(tourDescription);
-        System.out.println(tourDescription);
+
         tourRequest.setTourName(tourName);
-        System.out.println(tourName);
+
         tourRequest.setTourPhoto(file);
-        System.out.println(file);
+
         tourRequest.setDays(days);
-        System.out.println(days);
+
         tourRequest.setCategoryId(categoryId);
-        System.out.println(categoryId);
+
         tourRequest.setDestination(destination);
-        System.out.println(destination);
+
         tourRequest.setDepartureDate(departureDate);
-        System.out.println(departureDate);
+
         tourRequest.setTotalSeats(totalSeats);
-        System.out.println(totalSeats);
+
         tourRequest.setItineraries(itineraries);
-        System.out.println(itineraries);
+
         tourRequest.setPrice(price);
-        System.out.println(price);
+
 
 
         List<Tour> tourList = tourService.createTour(tourRequest);
