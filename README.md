@@ -107,7 +107,7 @@ and manage travel packages for exciting destinations around the world.Also, Admi
 
 **MySQL Schema**
 
-    <img width="960" alt="sql" src="https://github.com/Revathi-Santhanam/tourPackageProject/assets/145537456/7fa69048-337a-47a5-bdbe-93b5c521deb8">
+<img width="960" alt="sql" src="https://github.com/Revathi-Santhanam/tourPackageProject/assets/145537456/7fa69048-337a-47a5-bdbe-93b5c521deb8">
 
 
 Demo Video Url
