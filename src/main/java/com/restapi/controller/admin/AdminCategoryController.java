@@ -37,6 +37,7 @@ public class AdminCategoryController {
     @GetMapping("/all")
     public ResponseEntity<APIResponse> getAllCategories(){
         CategoryResponse categoryResponse = categoryService.findAll();
+
         apiResponse.setStatus(HttpStatus.OK.value());
         apiResponse.setData(categoryResponse.getCategories());
         return new ResponseEntity<>(apiResponse, HttpStatus.OK);
@@ -67,6 +68,9 @@ public class AdminCategoryController {
         String file = storageService.storeFile(categoryPhoto);
         CategoryRequest categoryRequest = new CategoryRequest();
         categoryRequest.setCategoryName(categoryName);
+        System.out.println(file);
+        System.out.println(categoryName);
+        System.out.println(id);
         categoryRequest.setId(id);
         categoryRequest.setCategoryPhoto(file);
 

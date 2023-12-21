@@ -36,7 +36,7 @@ public class BookingService {
 
 
 
-    public List<BookingResponse> bookTour(BookingRequest bookingRequest){
+    public List<BookingResponse>  bookTour(BookingRequest bookingRequest){
         AppUser appUser = userRepository.findById(bookingRequest.getUser_id())
                 .orElseThrow(() -> new ResourceNotFoundException("userId", "userId", bookingRequest.getUser_id()));
 
@@ -53,9 +53,10 @@ public class BookingService {
         booking.setTour(tour);
         booking.setBookingStatus(bookingStatus);
         booking.setCount(bookingRequest.getCount());
-
-
+        System.out.println(booking.getCount());
+        System.out.println(tour.getId());
         bookingRepository.save(booking);
+        tourRepository.updateTotalSeats(booking.getCount(),tour.getId());
 
         return getUsersBooking(bookingRequest.getUser_id());
     }

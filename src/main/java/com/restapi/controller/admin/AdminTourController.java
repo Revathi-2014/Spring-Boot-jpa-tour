@@ -45,14 +45,6 @@ public class AdminTourController {
         return new ResponseEntity<>(apiResponse, HttpStatus.OK);
     }
 
-    //    @PostMapping
-//    public ResponseEntity<APIResponse> createTour(@Valid @RequestBody
-//                                                  TourRequest tourRequest) {
-//        List<Tour> tourList = tourService.createTour(tourRequest);
-//        apiResponse.setStatus(HttpStatus.OK.value());
-//        apiResponse.setData(tourList);
-//        return new ResponseEntity<>(apiResponse, HttpStatus.OK);
-//    }
     @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<APIResponse> createTour(@RequestParam("itineraries") String itineraries,
                                                   @RequestParam("departureDate") String departureDate,
@@ -70,7 +62,6 @@ public class AdminTourController {
         String file = storageService.storeFile(tourPhoto);
         TourRequest tourRequest = new TourRequest();
         tourRequest.setId(id);
-        System.out.println(id);
         tourRequest.setTourDescription(tourDescription);
         tourRequest.setTourName(tourName);
         tourRequest.setTourPhoto(file);
@@ -88,15 +79,6 @@ public class AdminTourController {
         apiResponse.setData(tourList);
         return new ResponseEntity<>(apiResponse, HttpStatus.OK);
     }
-//
-//    @PutMapping
-//    public ResponseEntity<APIResponse> updateTour(@Valid @RequestBody
-//                                                  TourRequest tourRequest){
-//        List<Tour> tourList = tourService.updateTour(tourRequest);
-//        apiResponse.setStatus(HttpStatus.OK.value());
-//        apiResponse.setData(tourList);
-//        return new ResponseEntity<>(apiResponse, HttpStatus.OK);
-//    }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<APIResponse> deleteTour(@PathVariable Integer id){

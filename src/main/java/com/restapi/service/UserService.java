@@ -46,7 +46,7 @@ public class UserService {
                 .orElseThrow(() -> new InvalidUserException("Invalid user credentials"));
 
         if (!bCryptPasswordEncoder.matches(loginRequest.getPassword(), appUser.getPassword())) {
-            throw new InvalidUserException("Invalid password");
+            throw new InvalidUserException("Invalid user credentials");
         }
 
         return authDto.mapToAuthResponse(appUser);

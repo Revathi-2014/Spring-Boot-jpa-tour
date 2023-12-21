@@ -29,7 +29,6 @@ public class TourController {
 
     @GetMapping("/all")
     public ResponseEntity<APIResponse> getAllTours(){
-//        List<Tour> tourList = tourService.findAll();
         List<TourResponse> tourList =  tourService.findAllTour();
         apiResponse.setStatus(HttpStatus.OK.value());
         apiResponse.setData(tourList);

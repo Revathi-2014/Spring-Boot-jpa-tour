@@ -18,14 +18,14 @@ import java.util.List;
 @ToString
 public class CategoryRequest {
 
-
+    @NotEmpty
     private Long id;
 
     @NotEmpty
     @Size(min = 2, message = "Category should have at least 2 characters")
     private String categoryName;
 
-    @NotEmpty
+
     private String categoryPhoto;
 
 }

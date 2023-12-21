@@ -56,7 +56,6 @@ public class TourService {
         tour = tourRepository.save(tour);
         String jsonString = tourRequest.getItineraries();
         Object jsonObject = JSONValue.parse(jsonString);
-        System.out.println(jsonObject);
         ObjectMapper objectMapper = new ObjectMapper();
         JsonNode jsonNode = objectMapper.readTree(jsonString);
         List<Itinerary> itineraryList = new ArrayList<>();

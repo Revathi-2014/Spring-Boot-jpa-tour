@@ -19,7 +19,7 @@ import java.util.List;
 @RequestMapping("/api/category")
 @RolesAllowed(Role.USER)
 public class TourCategoryController {
-    @Autowired
+   @Autowired
     private APIResponse apiResponse;
 
     @Autowired

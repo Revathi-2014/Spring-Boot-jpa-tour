@@ -1,7 +1,6 @@
 package com.restapi.request;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
@@ -9,6 +8,9 @@ import java.util.Date;
 
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 public class RegisterRequest {
 
     @NotEmpty
