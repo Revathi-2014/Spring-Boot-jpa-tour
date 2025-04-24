@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 8.0.34, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.33, for Win64 (x86_64)
 --
 -- Host: localhost    Database: tour-website-db
 -- ------------------------------------------------------
@@ -16,13 +16,28 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Dumping data for table `tour_category`
+-- Table structure for table `booking_status`
 --
 
-LOCK TABLES `tour_category` WRITE;
-/*!40000 ALTER TABLE `tour_category` DISABLE KEYS */;
-INSERT INTO `tour_category` VALUES (1,'Kerala','1701242927077-file.jpg','2023-11-29 12:58:47.110209'),(2,'Kashmir','1701246878819-file.jpg','2023-11-29 14:04:38.822295'),(3,'Maldives','1701248922602-file.jpg','2023-11-29 14:38:42.605308'),(4,'Thailand','1701250428892-file.jpg','2023-11-29 15:03:48.895883');
-/*!40000 ALTER TABLE `tour_category` ENABLE KEYS */;
+DROP TABLE IF EXISTS `booking_status`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `booking_status` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `created_at` datetime(6) DEFAULT NULL,
+  `status` varchar(200) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `booking_status`
+--
+
+LOCK TABLES `booking_status` WRITE;
+/*!40000 ALTER TABLE `booking_status` DISABLE KEYS */;
+INSERT INTO `booking_status` VALUES (1,'2023-12-07 14:48:16.703115','Confirmed'),(2,'2023-12-07 14:48:16.707480','Cancelled');
+/*!40000 ALTER TABLE `booking_status` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -34,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-11-30 11:00:42
+-- Dump completed on 2025-04-24 11:19:49

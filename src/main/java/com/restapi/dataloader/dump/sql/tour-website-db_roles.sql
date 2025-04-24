@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 8.0.34, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.33, for Win64 (x86_64)
 --
 -- Host: localhost    Database: tour-website-db
 -- ------------------------------------------------------
@@ -16,13 +16,27 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Dumping data for table `users`
+-- Table structure for table `roles`
 --
 
-LOCK TABLES `users` WRITE;
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'2023-11-29 12:58:35.506723','user','$2a$10$2dRKrQl.fxv0b6eh5ebnB.ny2nuBKs5Bg6qTj9Bf6O2hr66ekiLvS',NULL,'user',1),(2,'2023-11-29 12:58:35.598475','admin','$2a$10$vig4lRr8rMZyvSpOZUx/Q.tPItmCWHYMc.JNnv8NKdPz2IHA1Z8b6',NULL,'admin',2),(3,'2023-11-29 16:40:15.275929','Revathi','$2a$10$KbRO.RcYPrhzGxyeuFXm/uRVLO1IbDNPK83WYzvqR1U79dLabJUzK',9898767656,'reva123@gmail.com',1);
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+DROP TABLE IF EXISTS `roles`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `roles` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `roles`
+--
+
+LOCK TABLES `roles` WRITE;
+/*!40000 ALTER TABLE `roles` DISABLE KEYS */;
+INSERT INTO `roles` VALUES (1,'USER'),(2,'ADMIN');
+/*!40000 ALTER TABLE `roles` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -34,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-11-30 11:00:42
+-- Dump completed on 2025-04-24 11:19:48
